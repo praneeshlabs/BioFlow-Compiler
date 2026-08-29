@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-forge-bg text-slate-200;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+html.light body {
+  @apply bg-slate-50 text-slate-800;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3241;
+  border-radius: 8px;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.scientific-grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
+  100% { box-shadow: 0 0 0 8px rgba(34, 211, 238, 0); }
+}
+.pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
