@@ -1,4 +1,4 @@
-# ProtocolForge
+# BioFlow-Compiler
 
 **Agentic Assay Compiler & Experimental Dependency Engine**
 
@@ -66,7 +66,7 @@ by deterministic tools before it reaches the UI.
 
 An LLM is good at *reading* a protocol and *proposing* structure. It is
 untrustworthy at arithmetic, graph theory, and remembering GHS hazard
-codes. ProtocolForge's orchestrator treats the LLM's (or the tuned
+codes. BioFlow's orchestrator treats the LLM's (or the tuned
 golden-path) output as a **draft** and re-derives every hard fact with a
 dedicated tool:
 
@@ -88,7 +88,7 @@ costs roughly `max(latencies)` instead of `sum(latencies)`.
 ### The "Golden Path" tuning strategy
 
 Rather than promising to parse *any* protocol on earth (and quietly
-failing on most of them), ProtocolForge is tuned against three protocols
+failing on most of them), BioFlow is tuned against three protocols
 chosen for real 96-well complexity and branching:
 
 1. **Sandwich ELISA** (`elisa`) — 13 steps, 5 wash cycles, a standard
@@ -124,7 +124,7 @@ The generic path is a safety net, not the headline feature.
 ## Directory structure
 
 ```
-protocolforge/
+BioFlow/
 ├── README.md
 ├── .gitignore
 ├── backend/
@@ -225,7 +225,7 @@ proxy configuration needed for local development.
 
 ---
 
-## Extending ProtocolForge
+## Extending BioFlow
 
 - **Add a fourth golden path**: drop a new tuned step list + keyword set
   into `golden_paths.py`'s `GOLDEN_PATHS` / `_KEYWORDS` dicts — no
