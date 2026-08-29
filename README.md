@@ -4,7 +4,7 @@
 
 ProtocolForge takes an unstructured, free-text scientific assay protocol and
 compiles it into a verified, deterministic execution DAG plus a 96-well
-plate/vessel layout. It is not a chatbot — it's a **Protocol Studio**: paste
+plate/vessel layout. It is not a chatbot - it's a **Protocol Studio**: paste
 text on the left, get a validated dependency graph in the center and a
 reagent-mapped plate on the right.
 
@@ -91,12 +91,12 @@ Rather than promising to parse *any* protocol on earth (and quietly
 failing on most of them), BioFlow is tuned against three protocols
 chosen for real 96-well complexity and branching:
 
-1. **Sandwich ELISA** (`elisa`) — 13 steps, 5 wash cycles, a standard
+1. **Sandwich ELISA** (`elisa`) - 13 steps, 5 wash cycles, a standard
    curve, colorimetric stop/read.
-2. **Illumina-style NGS Library Prep** (`library_prep`) — 9 steps,
+2. **Illumina-style NGS Library Prep** (`library_prep`) - 9 steps,
    tagmentation, dual-sided bead size selection, pooling into an
    off-plate vessel.
-3. **qPCR Standard Curve & Assay Setup** (`qpcr`) — 7 steps with **three
+3. **qPCR Standard Curve & Assay Setup** (`qpcr`) - 7 steps with **three
    independent parallel branches** (standard dilution, master mix prep,
    primer dilution) that converge into a single full-plate assembly step
    — a genuine multi-branch DAG, not a straight line.
@@ -104,7 +104,7 @@ chosen for real 96-well complexity and branching:
 `golden_paths.detect_golden_path()` keyword-scores incoming text against
 each family. A confident match swaps in a hand-built, fully-typed step
 graph for that assay. Anything else falls back to
-`extract_steps_generic()` — a conservative numbered-line/regex extractor —
+`extract_steps_generic()` a conservative numbered-line/regex extractor —
 optionally refined by a single Claude call if `ANTHROPIC_API_KEY` is set.
 The generic path is a safety net, not the headline feature.
 
@@ -179,7 +179,7 @@ The API is now live at `http://localhost:8000`. Check
 
 > **Note:** `ANTHROPIC_API_KEY` is only used for the *optional* refinement
 > pass on protocols that don't match one of the three golden paths. The
-> app is fully functional — including all three demo protocols — without
+> app is fully functional - including all three demo protocols — without
 > any API key configured.
 
 To run the tools as a standalone MCP server (for Claude Desktop / Claude
@@ -228,7 +228,7 @@ proxy configuration needed for local development.
 ## Extending BioFlow
 
 - **Add a fourth golden path**: drop a new tuned step list + keyword set
-  into `golden_paths.py`'s `GOLDEN_PATHS` / `_KEYWORDS` dicts — no
+  into `golden_paths.py`'s `GOLDEN_PATHS` / `_KEYWORDS` dicts - no
   frontend changes required, `/api/golden-paths` picks it up
   automatically.
 - **Swap the hazard source**: `screen_chemical_hazards_impl` is isolated
